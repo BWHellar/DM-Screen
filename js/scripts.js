@@ -38,11 +38,12 @@ CharacterList.prototype.deleteCharacter = function(id){
 }
 
 // Business Logic for Characters
-function Character(charName, charRace, charClass, location, notes, picture, addLoction) {
+function Character(charName, charRace, charClass, location, extraClass, notes, picture) {
   this.charName = charName,
   this.charRace = charRace,
   this.charClass = charClass,
   this.location = location,
+  this.extraClass = extraClass,
   this.notes = notes,
   this.picture = picture
 }
@@ -72,7 +73,7 @@ function showCharacter(characterId) {
   $(".charName").html(character.charName);
   $(".charRace").html(character.charRace);
   $(".charClass").html(character.charClass);
-  $(".location").html(character.location);
+  $(".location").html(character.location + character.extraClass);
   $(".notes").html(character.notes);
   $(".picture").html(character.picture);
   var buttons = $("#buttons");
@@ -99,28 +100,40 @@ function readURL(input) {
   }
 }
 
+var emptyArray = [];
+
 function addLocation(addMe) {
   var addMe = document.createElement("input");
+  var breakMe = document.createElement("br");
+  breakMe.setAttribute("p", "br");
   addMe.setAttribute("type", "text");
-  addMe.setAttribute("value", "");
-  document.getElementById('HELP').appendChild(addMe)
+  addMe.setAttribute("value", "Add Specific Location");
+  addMe.setAttribute("class", "extraClass");
+  document.getElementById('More').appendChild(addMe)
+  document.getElementById('More').appendChild(breakMe)
 }
 
 $(document).ready(function(){
   attachCharacterListeners();
   $("form#new-character").submit(function(event){
     event.preventDefault();
+    var extras = document.getElementsByClassName("extraClass");
+    for(extra of extras){
+      console.log(extra.value);
+    }
     var inputtedCharName = $("input#newCharName").val();
     var inputtedRaceName = $("input#newCharRace").val();
     var inputtedClassName = $("input#newCharClass").val();
     var inputtedLocation = $("input#newLocation").val();
+    var newInputtedLocation = extras;
     var inputtedNotes = $("input#newNotes").val();
     var inputtedPicture = '<img src="' + $("#newPicture").attr("src")+'">';
-    var newChar = new Character (inputtedCharName, inputtedRaceName,  inputtedClassName, inputtedLocation, inputtedNotes, inputtedPicture);
+    var newChar = new Character (inputtedCharName, inputtedRaceName,  inputtedClassName, inputtedLocation, inputtedNotes, inputtedPicture, newInputtedLocation);
     characterList.addCharacter(newChar);
     displayCharacterDetails(characterList);
   })
   $('#additional').click(function(){
     addLocation();
+
   })
 })
