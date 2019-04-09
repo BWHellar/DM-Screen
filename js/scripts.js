@@ -119,8 +119,10 @@ $(document).ready(function(){
     var extras = document.getElementsByClassName("extraClass");
     var emptyExtra = [];
     for(extra of extras){
-      emptyExtra.push(extra.value)
-      console.log(extra.value);
+      if(emptyArray.toString().split('').includes("")){
+        emptyExtra.push(", ")
+      }else
+      emptyExtra.push(extra.value);
     }
     var inputtedCharName = $("input#newCharName").val();
     var inputtedRaceName = $("input#newCharRace").val();
