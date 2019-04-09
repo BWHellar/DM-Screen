@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.3.1.js" charset="utf-8"></script>
+    <script src="js/scripts.js" charset="utf-8"></script>
+    <title>DM Screen</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Address Book</h1>
+        <div class="row">
+          <div class="col-md-7">
+            <hr>
+            <h2>Add a Contact:</h2>
+            <div class="searchField">
+              <p><span id="inputField">Input ID to find</span></p>
+              <input type="text" name="find" id="findFunction">
+            </div>
+            <form id="new-character">
+              <div class="form-group" id="forPicture">
+                <label for="newPicture">Picture</label>
+                <input type="file" onchange="readURL(this);"/>
+                <img id="newPicture" src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/upload-icon.png" alt="Image preview">
+              </div>
+              <div class="form-group">
+                <label for="newCharName">Character Name:</label>
+                <input type="text" id="newCharName">
+              </div>
+              <div class="form-group">
+                <label for="newCharRace">Race:</label>
+                <input type="text" id="newCharRace">
+              </div>
+              <div class="form-group">
+                <label for="newCharClass">Class:</label>
+                <input type="text" id="newCharClass">
+              </div>
+              <div class="form-group">
+                <label for="newLocation">Location:</label>
+                <input type="text" id="newLocation">
+              </div>
+              <div class="form-group">
+                <label for="newNotes">Notes:</label>
+                <input type="text" id="newNotes">
+              </div>
+              <button type="submit" id="topSubmit">Add</button>
+            </form>
+            <hr>
+            <h2>Characters</h2>
+            <ul id="characters">
+            </ul>
+          </div>
+          <div class="col-md-5">
+            <div id="showCharacter">
+              <p><span class="picture"></span></p>
+              <div id="inline">
+                <p>Name: <span class="charName"></span></p>
+                <p>Race: <span class="charRace"></span></p>
+                <p>Class: <span class="charClass"></span></p>
+                <p>Location: <span class="location"></span></p>
+                <p>Notes: <span class="notes"></span></p>
+                <div id="buttons">
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
