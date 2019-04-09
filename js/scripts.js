@@ -48,7 +48,6 @@ function Character(charName, charRace, charClass, location, extraClass, notes, p
   this.picture = picture
 }
 
-
 //User Interface Logic
 var characterList = new CharacterList();
 
@@ -118,19 +117,22 @@ $(document).ready(function(){
   $("form#new-character").submit(function(event){
     event.preventDefault();
     var extras = document.getElementsByClassName("extraClass");
+    var emptyExtra = [];
     for(extra of extras){
+      emptyExtra.push(extra.value)
       console.log(extra.value);
     }
     var inputtedCharName = $("input#newCharName").val();
     var inputtedRaceName = $("input#newCharRace").val();
     var inputtedClassName = $("input#newCharClass").val();
     var inputtedLocation = $("input#newLocation").val();
-    var newInputtedLocation = extras;
-    var inputtedNotes = $("input#newNotes").val();
+    var newInputtedLocation = emptyExtra;
+    var inputtedNotes = $("textarea#newNotes").val();
     var inputtedPicture = '<img src="' + $("#newPicture").attr("src")+'">';
-    var newChar = new Character (inputtedCharName, inputtedRaceName,  inputtedClassName, inputtedLocation, inputtedNotes, inputtedPicture, newInputtedLocation);
+    var newChar = new Character (inputtedCharName, inputtedRaceName,  inputtedClassName, inputtedLocation, newInputtedLocation, inputtedNotes, inputtedPicture);
     characterList.addCharacter(newChar);
     displayCharacterDetails(characterList);
+    console.log(inputtedNotes);
   })
   $('#additional').click(function(){
     addLocation();

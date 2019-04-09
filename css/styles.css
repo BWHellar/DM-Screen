@@ -75,3 +75,6 @@ h1{
 #showCharacter{
   font-family: fantasy;
 }
+#inline{
+  display: inline-block;
+}
