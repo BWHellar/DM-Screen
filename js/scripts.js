@@ -38,7 +38,7 @@ CharacterList.prototype.deleteCharacter = function(id){
 }
 
 // Business Logic for Characters
-function Character(charName, charRace, charClass, location, notes, picture) {
+function Character(charName, charRace, charClass, location, notes, picture, addLoction) {
   this.charName = charName,
   this.charRace = charRace,
   this.charClass = charClass,
@@ -47,9 +47,7 @@ function Character(charName, charRace, charClass, location, notes, picture) {
   this.picture = picture
 }
 
-// Character.prototype.fullName = function(){
-//   return this.charName;
-// }
+
 //User Interface Logic
 var characterList = new CharacterList();
 
@@ -101,6 +99,13 @@ function readURL(input) {
   }
 }
 
+function addLocation(addMe) {
+  var addMe = document.createElement("input");
+  addMe.setAttribute("type", "text");
+  addMe.setAttribute("value", "");
+  document.getElementById('HELP').appendChild(addMe)
+}
+
 $(document).ready(function(){
   attachCharacterListeners();
   $("form#new-character").submit(function(event){
@@ -114,5 +119,8 @@ $(document).ready(function(){
     var newChar = new Character (inputtedCharName, inputtedRaceName,  inputtedClassName, inputtedLocation, inputtedNotes, inputtedPicture);
     characterList.addCharacter(newChar);
     displayCharacterDetails(characterList);
+  })
+  $('#additional').click(function(){
+    addLocation();
   })
 })
