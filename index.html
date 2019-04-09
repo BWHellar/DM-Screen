@@ -8,20 +8,30 @@
     <title>DM Screen</title>
   </head>
   <body>
+    <div class="sidenav">
+      <h4>Characters</h4>
+      <div class="searchField">
+        <p><span id="inputField">Input ID to find</span></p>
+        <input type="text" name="find" id="findFunction">
+      </div>
+      <br>
+      <ul id="characters">
+      </ul>
+    </div>
     <div class="container">
-      <h1>Address Book</h1>
+      <div class="jumbotron vertical-center">
+        <h1>DM Screen</h1>
+        <button type="button" name="button" id="showAddCharacter">Create New Character</button>
+      </div>
         <div class="row">
           <div class="col-md-7">
             <hr>
-            <h2>Add a Contact:</h2>
-            <div class="searchField">
-              <p><span id="inputField">Input ID to find</span></p>
-              <input type="text" name="find" id="findFunction">
-            </div>
             <form id="new-character">
+            <h2>Add a Character:</h2>
               <div class="form-group" id="forPicture">
                 <label for="newPicture">Picture</label>
                 <input type="file" onchange="readURL(this);"/>
+                <br>
                 <img id="newPicture" src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/upload-icon.png" alt="Image preview">
               </div>
               <div class="form-group">
@@ -43,14 +53,11 @@
               </div>
               <div class="form-group">
                 <label for="newNotes">Notes:</label>
-                <input type="text" id="newNotes">
+                <textarea id="newNotes" type="text"></textarea>
               </div>
               <button type="submit" id="topSubmit">Add</button>
             </form>
             <hr>
-            <h2>Characters</h2>
-            <ul id="characters">
-            </ul>
           </div>
           <div class="col-md-5">
             <div id="showCharacter">

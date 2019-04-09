@@ -134,6 +134,8 @@ $(document).ready(function(){
   })
   $('#additional').click(function(){
     addLocation();
-
+  })
+  $("#showAddCharacter").click(function(){
+    $("form#new-character").slideToggle();
   })
 })

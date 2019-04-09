@@ -1,13 +1,77 @@
-/*#new-Contact {
+#showCharacter{
   display: none;
-}*/
-
+}
+#newNotes{
+  width: 250px;
+  height: 250px;
+  display: inherit;
+}
 input {
   display:inherit;
-  text-align: center;
 }
-
 #additional {
   float: right;
   position: relative;
+}
+img {
+  height: 200px;
+  width: 200px;
+}
+.jumbotron{
+  width: 50%;
+  text-align: center;
+  font-family: fantasy;
+  border-radius: 25px;
+  background-image: url(../img/jumb.jpeg);
+  background-position: top;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin-left: 30%;
+}
+.sidenav {
+  height: 100%;
+  width: 150px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: wrap;
+  padding-top: 20px;
+  border: solid black;
+  border-radius: 25px;
+  font-family: fantasy;
+  font-weight: bold;
+}
+#inputField{
+  margin-left: 5%;
+}
+.container{
+  width: 75%;
+}
+
+#findFunction{
+  width: 100%;
+  border-radius: 15px;
+}
+#new-character{
+  display: none;
+  font-family: fantasy;
+  margin-left: 20px;
+}
+
+body{
+  background-image: url(../img/MainBack.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1{
+  color: #D6B331;
+  font-weight: bolder;
+  text-shadow: 5px 5px #87360088;
+}
+#showAddCharacter{
+  border-radius: 25px;
+}
+#showCharacter{
+  font-family: fantasy;
 }
